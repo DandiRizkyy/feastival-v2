@@ -34,7 +34,7 @@ const fetcher = async (url: string) => {
 export default function SearchBarHome() {
   // State for filtering
   const { data: citiesData, error: citiesError } = useSWR(
-    'https://feastival-api.up.railway.app/events',
+    'https://feastival-backend.onrender.com',
     fetcher,
   );
   const citiesSet = new Set<string>();
@@ -45,7 +45,7 @@ export default function SearchBarHome() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const { data: filteredEvents, error: eventsError } = useSWR(
-    `https://feastival-api.up.railway.app/events?name=${
+    `https://feastival-backend.onrender.com/events?name=${
       searchQuery || ''
     }&location=${selectedCity || ''}`,
     fetcher,

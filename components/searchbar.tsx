@@ -53,7 +53,7 @@ const SearchBar = () => {
   // Fetch events data
   const { data: eventsData, error: eventsError } = useSWR(
     isOpen && query
-      ? `https://feastival-api.up.railway.app/events?name=${query}`
+      ? `https://feastival-backend.onrender.com/events?name=${query}`
       : null,
     fetcher,
   );
